@@ -1,32 +1,30 @@
 #include <iostream>
 #include <stack>
 using namespace std;
-
 double toNum(char* s, int& k)
 {
-	int flag = 0;
-	double x = 0.0, y = 0.1;
-	while (s[k] >= '0' && s[k] <= '9' || s[k] == '.')
+	int flag=0;
+	double x=0.0,y=0.1;
+	while (s[k]>='0'&&s[k]<='9'||s[k]=='.')
 	{
-		if (s[k] >= '0' && s[k] <= '9')
+		if (s[k]>='0'&&s[k]<='9')
 		{
-			if (flag == 0)
-				x = x * 10 + s[k] - '0';
+			if (flag==0)
+				x=x*10+s[k]-'0';
 			else
 			{
-				x = x + y * (s[k] - '0');
-				y = y * 0.1;
+				x=x+y*(s[k]-'0');
+				y=y*0.1;
 			}
 		}
 		else
 		{
-			flag = 1;
+			flag=1;
 		}
-		k = k + 1;
+		k=k+1;
 	}
 	return x;
 }
-
 int priority(char c)
 {
 	int k;
@@ -42,30 +40,29 @@ int priority(char c)
 	}
 	return k;
 }
-
 int main()
 {
-	stack<double> sv;
-	stack<char> sp;
+	stack<double>sv;
+	stack<char>sp;
 	char c;
-	int k = 0, flag = 1;
-	double x, y;
+	int k=0,flag=1;
+	double x,y;
 	sp.push('\0');
-	char* s = new char[100];
-	cout << "输入多项式：" << endl;
-	cin >> s;
-	c = s[k];
+	char*s=new char[100];
+	cout<<"输入多项式："<< endl;
+	cin>>s;
+	c=s[k];
 	while (flag)
 	{
-		if (c >= '0' && c <= '9' || c == '.')
+		if (c>='0'&& c<='9'||c=='.')
 		{
-			sv.push(toNum(s, k));
+			sv.push(toNum(s,k));
 		}
-		else if (c == '\0' && sp.top() == '\0')
+		else if (c=='\0'&&sp.top()== '\0')
 		{
 			flag = 0;
 		}
-		else if (c == '(' || (priority(c) > priority(sp.top())))
+		else if (c=='('||(priority(c)>priority(sp.top())))
 		{
 			sp.push(c);
 			k++;
@@ -77,11 +74,11 @@ int main()
 		}
 		else if (priority(c) <= priority(sp.top()))
 		{
-			x = sv.top();
+			x=sv.top();
 			sv.pop();
-			y = sv.top();
+			y=sv.top();
 			sv.pop();
-			c = sp.top();
+			c=sp.top();
 			sp.pop();
 			switch (c)
 			{
@@ -92,9 +89,9 @@ int main()
 			}
 			sv.push(y);
 		}
-		c = s[k];
+		c=s[k];
 	}
-	cout << "=" ;
-	cout << sv.top() << endl;
+	cout<<"=";
+	cout<<sv.top()<<endl;
 	return 0;
 }

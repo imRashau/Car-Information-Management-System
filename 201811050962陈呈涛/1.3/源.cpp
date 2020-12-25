@@ -1,8 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
 using namespace std;
-
 struct student
 {
 	int chinese; //语文成绩
@@ -23,20 +21,22 @@ int cmp(student p1, student p2)
 		return p1.sum > p2.sum;
 	}
 }
-
-int n;//人数
-
-int main() {
-	cin >> n;
-	for (int i = 1; i <= n; i++) {
-		s[i].num = i;
-		cin >> s[i].chinese >> s[i].math >> s[i].english;
-		s[i].sum = s[i].chinese + s[i].math + s[i].english;
+int main() 
+{
+	int n;//人数
+	cout <<"输入人数及每个人的语文数学英语的成绩" << endl;
+	cin >>n;
+	for (int i=1;i<=n;i++)
+	{
+		s[i].num=i;
+		cin>>s[i].chinese>>s[i].math>>s[i].english;
+		s[i].sum=s[i].chinese+s[i].math+s[i].english;
 	}
-	sort(1 + s, 1 + n + s, cmp);//排序
-
-	for (int i = 1; i <= 5; i++) {//输出前5名
-		cout << s[i].num << " " << s[i].sum << endl;;
+	sort(1+s,1+n+s,cmp);//排序
+	cout << "前五名的学号和成绩分别是" << endl;
+	for (int i = 1; i <= 5; i++) 
+	{//输出前5名
+		cout<<s[i].num<<" "<<s[i].sum<<endl;
 	}
 	return 0;
 }

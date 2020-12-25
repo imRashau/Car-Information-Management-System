@@ -5,10 +5,10 @@ int main()
 {
     int fun(int a, int b);
     int a, b, c;
-    cout << "ÊäÈëa¡¢b:" << endl;
+    cout << "ÊäÈëa,b:" << endl;
     cin >> a >> b;
     c = fun(a, b);
-    cout << "c = " << c << endl;
+    cout << "c=" << c << endl;
     return 0;
 }
 int fun(int a, int b)
