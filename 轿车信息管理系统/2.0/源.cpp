@@ -42,7 +42,7 @@ void sys::init() //初始化系统
 {
 	mysql_init(&mysql); //连接之前必须使用这个函数来初始化 
 	mysql_options(&mysql, MYSQL_SET_CHARSET_NAME, "gbk");
-	cout << "与mysql的链接，请输入mysql密码" << endl;
+	cout << "链接mysql，请输入mysql密码" << endl;
 	cin.get(passwd, 100);
 	if ((sock = mysql_real_connect(&mysql, host, user, passwd, db, port, unix_socket, client_flag)) == NULL) //连接MySQL 
 	{
@@ -61,12 +61,11 @@ void sys::secede()//退出系统
 	exit(0);
 
 }
-
 void sys::Input()
 {
-	cout << "请输入要输入的信息的个数";
+	cout << "请输入要输入的信息的个数" << endl;
 	int x;
-	cin >> x;
+	cin >> x ;
 	while (x--)
 	{
 		cout << "请输入汽车的编号、型号、颜色、生产厂家、出厂日期、价格、库存" << endl;
@@ -82,9 +81,7 @@ void sys::Input()
 		}
 		else
 		{
-
 			cout << "输入成功" << endl;
-
 		}
 	}
 }
@@ -101,7 +98,6 @@ void sys::display()
 	}
 	else
 	{
-
 		result = mysql_store_result(&mysql);
 		if (result == NULL) //保存查询的结果 
 		{
@@ -140,7 +136,6 @@ void sys::search()
 		}
 		else
 		{
-
 			result = mysql_store_result(&mysql);
 			if (result == NULL) //保存查询的结果 
 			{
@@ -148,7 +143,6 @@ void sys::search()
 				{
 					cout << "没有返回结果" << endl;
 				}
-
 			}
 			else
 			{
@@ -180,7 +174,6 @@ void sys::search1()
 	}
 	else
 	{
-
 		result = mysql_store_result(&mysql);
 		if (result == NULL) //保存查询的结果 
 		{
@@ -188,7 +181,6 @@ void sys::search1()
 			{
 				cout << "没有返回结果" << endl;
 			}
-
 		}
 		else
 		{
@@ -221,9 +213,7 @@ void sys::delete1()
 	}
 	else
 	{
-
 		cout << "删除成功" << endl;
-
 	}
 
 }
@@ -244,14 +234,9 @@ void sys::modify()
 	}
 	else
 	{
-
 		cout << "修改信息成功" << endl;
-
 	}
-
-
 }
-
 void sys::function()
 {
 	cout << "进入汽车管理系统" << endl << endl;
@@ -270,7 +255,6 @@ int main()
 	sys carsys;
 	carsys.init();
 	carsys.function();
-	
 	while (1)
 	{
 		cout << endl;
@@ -290,7 +274,6 @@ int main()
 		case 5:carsys.delete1(); break;
 		case 6:carsys.modify(); break;
 		case 7:carsys.secede();
-
 		}
 		cout << endl << "如果你想继续,请输入E,否则退出系统" << endl;
 		cin >> if_ch;
