@@ -21,64 +21,60 @@ public:
 };
 class car :private vehicle//小汽车类
 {
-	int passenger;//载人数
+	int passenger_load;//载人数
 public:
 	car(int a, int b, int passenger1) :vehicle(a, b)
 	{
-		passenger = passenger1;
+		passenger_load = passenger1;
 	}
 	void show()
 	{
 		vehicle::show();
-		cout << "小车类：" << endl;
-		vehicle::show();
-		cout << "载人数：" << passenger << endl;
+		cout << "载人数：" << passenger_load << endl;
 
 	}
 };
 class truck :private vehicle//卡车类
 {
-	int passenger;//载人数
+	int passenger_load;//载人数
 	int payload;//载重量
 public:
 	truck(int a, int b, int passenger1, int payload1) :vehicle(a, b)
 	{
-		passenger = passenger1;
+		passenger_load = passenger1;
 		payload = payload1;
 	}
 	void show()
 	{
 		vehicle::show();
-		cout << "卡车类：" << endl;
-		vehicle::show();
-		cout << "载人数：" << passenger << endl;
+		cout << "载人数：" << passenger_load << endl;
 		cout << "载重量：" << payload << endl;
 
 	}
 };
 int main()
 {
-	int wheels, weight, wheels_c, weight_c, passenger_c, wheels_t, weight_t, passenger_t, payload_t;
-	cout << "输入vehicle的wheel和weight：" << endl;
+	int wheels, weight, wheels_c, weight_c, passenger_load_c, wheels_t, weight_t, passenger_load_t, payload_t;
+	cout << "输入汽车类的车轮个数、车重：" << endl;
 	cin >> wheels >> weight;
-	cout << "输入car的wheel、weight和passenger：" << endl;
-	cin >> wheels_c >> weight_c >> passenger_c;
-	cout << "输入truck的wheel、weight、passenger和payload：" << endl;
-	cin >> wheels_t >> weight_t >> passenger_t >> payload_t;
-	cout << "\n" << endl;
+	cout << "输入小车类的车轮个数、车重、载人数：" << endl;
+	cin >> wheels_c >> weight_c >> passenger_load_c;
+	cout << "输入卡车类的车轮个数、车重、载人数、载重量：" << endl;
+	cin >> wheels_t >> weight_t >> passenger_load_t >> payload_t;
+	cout << "\n" ;
 
-	cout << "vehicle：" << endl;
+	cout << "汽车类：" << endl;
 	vehicle v(wheels, weight);
 	v.show();
-	cout << "\n" << endl;
+	cout << "\n";
 
-	cout << "car：" << endl;
-	car c(wheels_c, weight_c, passenger_c);
+	cout << "小车类：" << endl;
+	car c(wheels_c, weight_c, passenger_load_c);
 	c.show();
-	cout << "\n" << endl;
+	cout << "\n";
 
-	cout << "truck：" << endl;
-	truck t(wheels_t, weight_t, passenger_t, payload_t);
+	cout << "卡车类：" << endl;
+	truck t(wheels_t, weight_t, passenger_load_t, payload_t);
 	t.show();
-	cout << "\n" << endl;
+	cout << "\n" ;
 }
