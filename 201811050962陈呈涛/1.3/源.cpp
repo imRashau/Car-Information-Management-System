@@ -6,7 +6,7 @@ struct student
 	int chinese; //语文成绩
 	int math; //数学成绩
 	int english; //英语成绩
-	int num; //序号
+	int num; //学号
 	int sum = 0; //总分
 }s[301];
 int cmp(student p1, student p2)
