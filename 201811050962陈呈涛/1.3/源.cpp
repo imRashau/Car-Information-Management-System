@@ -24,7 +24,7 @@ int cmp(student p1, student p2)
 int main() 
 {
 	int n;//人数
-	cout <<"输入人数及每个人的语文数学英语的成绩" << endl;
+	cout <<"输入人数及每个人的语文、数学、英语的成绩" << endl;
 	cin >>n;
 	for (int i=1;i<=n;i++)
 	{
