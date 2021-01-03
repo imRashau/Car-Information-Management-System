@@ -15,7 +15,7 @@ public:
 	void show()
 	{
 		cout << "车轮数：" << wheels << "个" << endl;
-		cout << "车重量：" << weight << "Kg" << endl;
+		cout << "车  重：" << weight << "Kg" << endl;
 
 	}
 };
