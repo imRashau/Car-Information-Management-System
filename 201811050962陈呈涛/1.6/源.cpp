@@ -14,8 +14,8 @@ public:
 	}
 	void show()
 	{
-		cout << "车轮数：" << wheels << endl;
-		cout << "重量：" << weight << endl;
+		cout << "车轮数：" << wheels << "个" << endl;
+		cout << "车重量：" << weight << "Kg" << endl;
 
 	}
 };
@@ -30,7 +30,7 @@ public:
 	void show()
 	{
 		vehicle::show();
-		cout << "载人数：" << passenger_load << endl;
+		cout << "载人数：" << passenger_load << "人" << endl;
 
 	}
 };
@@ -47,8 +47,8 @@ public:
 	void show()
 	{
 		vehicle::show();
-		cout << "载人数：" << passenger_load << endl;
-		cout << "载重量：" << payload << endl;
+		cout << "载人数：" << passenger_load << "人" << endl;
+		cout << "载重量：" << payload << "Kg" << endl;
 
 	}
 };
