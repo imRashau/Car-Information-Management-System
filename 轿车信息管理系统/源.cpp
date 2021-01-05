@@ -68,11 +68,11 @@ void sys::Input()
 	cin >> x ;
 	while (x--)
 	{
-		cout << "请输入汽车的编号、型号、颜色、生产厂家、出厂日期、价格、库存" << endl;
-		cin >> number >> model >> colour >> manufacturer >> date >> price >> stock;
+		cout << "请输入汽车的编号、型号、颜色、生产厂家、出厂日期、价格" << endl;
+		cin >> number >> model >> colour >> manufacturer >> date >> price ;
 		sprintf_s(query_sql,
-			"insert into carinformation(number, model ,colour , manufacturer , date , price , stock ) values(%d,'%s','%s','%s',%d,%d,%d)"
-			, number, model, colour, manufacturer, date, price, stock);
+			"insert into carinformation(number, model ,colour , manufacturer , date , price ) values(%d,'%s','%s','%s',%d,%d)"
+			, number, model, colour, manufacturer, date, price);
 		if (mysql_query(&mysql, query_sql) != 0) //mysql_query函数运行SQL语句,成功返回0
 		{
 			cout << "sql语句出现错误" << endl;
@@ -108,7 +108,7 @@ void sys::display()
 		}
 		else
 		{
-			cout << "编号    型号     颜色 生产厂家 出厂日期  价格   库存" << endl;
+			cout << "编号    型号     颜色 生产厂家 出厂日期  价格" << endl;
 			while ((row = mysql_fetch_row(result)) != NULL) //读取结果集中的数据
 			{
 				num_fields = mysql_num_fields(result);
@@ -146,7 +146,7 @@ void sys::search()
 			}
 			else
 			{
-				cout << "编号    型号     颜色 生产厂家 出厂日期   价格  库存" << endl;
+				cout << "编号    型号     颜色 生产厂家 出厂日期   价格" << endl;
 				while ((row = mysql_fetch_row(result)) != NULL) //读取结果集中的数据
 				{
 					num_fields = mysql_num_fields(result);
@@ -184,7 +184,7 @@ void sys::search1()
 		}
 		else
 		{
-			cout << "编号    型号     颜色 生产厂家 出厂日期   价格  库存" << endl;
+			cout << "编号    型号     颜色 生产厂家 出厂日期   价格" << endl;
 			while ((row = mysql_fetch_row(result)) != NULL) //读取结果集中的数据
 			{
 				num_fields = mysql_num_fields(result);
@@ -204,7 +204,7 @@ void sys::delete1()
 	cout << "请输入要删除的汽车编号" << endl;
 	cin >> number;
 	sprintf_s(query_sql,
-		"DELETE FROM carinformation WHERE Number=%d", number);
+		"DELETE FROM carinformation WHERE number=%d", number);
 	if (mysql_query(&mysql, query_sql) != 0) //mysql_query函数运行SQL语句,成功返回0
 	{
 		cout << "sql语句出现错误" << endl;
@@ -221,11 +221,11 @@ void sys::modify()
 {
 	cout << "请输入要修改的信息的编号" << endl;
 	cin >> number;
-	cout << "请分别输入要修改的型号、颜色、生产厂家、出厂日期、价格、库存" << endl;
-	cin >> model >> colour >> manufacturer >> date >> price >> stock; 
+	cout << "请分别输入要修改的型号、颜色、生产厂家、出厂日期、价格" << endl;
+	cin >> model >> colour >> manufacturer >> date >> price ; 
 	sprintf_s(query_sql,
-		"update carinformation set Model='%s',Colour='%s',Manufacturer='%s',date=%d, price=%d,stock=%d where Number=%d"
-		, model, colour, manufacturer, date, price, stock, number);
+		"update carinformation set Model='%s',Colour='%s',Manufacturer='%s',date=%d, price=%d where Number=%d"
+		, model, colour, manufacturer, date, price, number);
 	if (mysql_query(&mysql, query_sql) != 0) //mysql_query函数运行SQL语句,成功返回0
 	{
 		cout << "sql语句出现错误" << endl;
